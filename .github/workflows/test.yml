@@ -1,0 +1,30 @@
+name: AI YouTube Automation Test
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check Python
+        run: |
+          python --version
+          echo "AI YouTube Automation is working!"
+
+      - name: Check FFmpeg
+        run: |
+          ffmpeg -version | head -n 1
+
+      - name: Finish
+        run: echo "STEP 2 SUCCESS ✅"
